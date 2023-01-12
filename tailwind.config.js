@@ -28,6 +28,8 @@ module.exports = {
       width: {
         content: '1188px',
         'w-1/8': '12.5%',
+        128: '32rem',
+        160: '40rem',
       },
       fontSize: {
         22: '1.375rem',

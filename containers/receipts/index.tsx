@@ -8,16 +8,18 @@ import jsPDF from 'jspdf'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 
+export type ChartData = [string, number]
+
 export default function ProductsContainer({}) {
-  const [products, setProducts] = useState([] as ProductInterface[])
+  const [products, setProducts] = useState([] as ChartData[])
   const [data, setData] = useState([] as ProductInterface[])
 
   useEffect(() => {
     const data = localStorage.getItem(CART_ITEMS)
     if (data) {
-      let chartData: ProductInterface[] = []
+      let chartData: ChartData[] = []
       const parsedData = JSON.parse(data)
-      parsedData.map((p) => {
+      parsedData.map((p: ProductInterface) => {
         chartData.push([p.title, p.price])
       })
       setData(parsedData)
@@ -26,12 +28,15 @@ export default function ProductsContainer({}) {
   }, [])
 
   const downloadPdf = (divId: string) => {
-    html2canvas(document.getElementById(divId)).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png')
-      const pdf = new jsPDF()
-      pdf.addImage(imgData, 'PNG', 0, 0)
-      pdf.save('download.pdf')
-    })
+    const element = document.getElementById(divId)
+    if (element) {
+      html2canvas(element).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png')
+        const pdf = new jsPDF()
+        pdf.addImage(imgData, 'PNG', 0, 0, 0, 0)
+        pdf.save('download.pdf')
+      })
+    }
   }
 
   return (
