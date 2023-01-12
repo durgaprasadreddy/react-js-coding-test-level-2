@@ -2,6 +2,7 @@ import Countdown from 'components/countdown'
 import TextWithEllipsis from 'components/textWithEllipsis'
 import Title from 'components/title'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ProductInterface } from 'pages'
 
 interface FlashSaleProps {
@@ -19,9 +20,11 @@ export default function FlashSale({ products }: FlashSaleProps) {
             <div>Ending</div>
             <Countdown time={39000} />
           </div>
-          <button className="flex items-center justify-center rounded-sm border border-primary px-2.5 text-sm font-medium leading-9 text-primary">
-            SHOP ALL PRODUCTS
-          </button>
+          <Link href={'/products'}>
+            <button className="flex items-center justify-center rounded-sm border border-primary px-2.5 text-sm font-medium leading-9 text-primary">
+              SHOP ALL PRODUCTS
+            </button>
+          </Link>
         </div>
         <div className="mt-3 flex flex-wrap pb-3">
           {products.map((product, index) =>

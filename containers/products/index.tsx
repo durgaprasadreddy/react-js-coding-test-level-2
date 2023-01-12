@@ -1,10 +1,12 @@
 import Title from 'components/title'
+import { CART_ITEMS } from 'constants/variables'
 import Image from 'next/image'
 import { ProductInterface } from 'pages'
 import React, { useState } from 'react'
 import { firstCharMakeCap } from 'utils'
 import FloatButton from './floatButton'
 import Pagination from './pagination'
+import { useRouter } from 'next/router'
 
 interface ProductsContainerProps {
   products: ProductInterface[]
@@ -22,6 +24,8 @@ export default function ProductsContainer({
   const [category, setCategory] = useState('')
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [rowsPerPage] = useState<number>(10)
+
+  const router = useRouter()
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page)
@@ -41,6 +45,17 @@ export default function ProductsContainer({
       setSortBy(column)
       setSortOrder('asc')
     }
+  }
+
+  const onBuy = (product: ProductInterface) => {
+    const data = localStorage.getItem(CART_ITEMS)
+    let newCartData = []
+    if (data) {
+      newCartData = JSON.parse(data)
+    }
+    newCartData.push(product)
+    localStorage.setItem(CART_ITEMS, JSON.stringify(newCartData))
+    router.push('/receipts')
   }
 
   let sortedData = products.sort((a, b) => {
@@ -124,7 +139,12 @@ export default function ProductsContainer({
                       ${row.price}
                     </td>
                     <td className="w-1/12 px-4 py-2 text-center">
-                      <button className="text-primary">Buy</button>
+                      <button
+                        onClick={() => onBuy(row)}
+                        className="text-primary"
+                      >
+                        Buy
+                      </button>
                     </td>
                   </tr>
                 )

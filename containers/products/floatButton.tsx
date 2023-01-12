@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { CART_ITEMS } from 'constants/variables'
 
-interface Props {
-  cartNumber?: number
-}
+interface Props {}
 
-const FloatButton: React.FC<Props> = ({ cartNumber = 20 }) => {
+const FloatButton: React.FC<Props> = () => {
   const [showCartNumber, setShowCartNumber] = useState(false)
+  const [cartNumber, setCartNumber] = useState(0 as number)
+
+  useEffect(() => {
+    const data = localStorage.getItem(CART_ITEMS)
+    if (data) {
+      const parsedData = JSON.parse(data)
+      setCartNumber(parsedData.length)
+    }
+  }, [])
 
   return (
     <>
