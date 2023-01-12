@@ -30,33 +30,36 @@ export default function LazMall({ products }: LazMallProps) {
             index < 6 || index > 11 ? null : (
               <div
                 key={product.id}
-                className={`flex-1 cursor-pointer rounded-sm bg-white shadow-lg hover:shadow ${
-                  index < 10 ? 'mr-3' : ''
-                }`}
+                className={`w-1/2 cursor-pointer pb-2 pr-2 md:w-3/12 lg:flex-1`}
               >
-                <Image
-                  src={product.image}
-                  height={138}
-                  width={188}
-                  alt={''}
-                  className="h-44 w-36"
-                />
-                <div className="px-1 py-1 text-center text-sm text-black">
-                  <div className="-mt-10 flex w-full justify-center">
-                    <div className="border border-white shadow">
-                      <Image
-                        src={product.image}
-                        height={50}
-                        width={50}
-                        alt={''}
-                        className="h-12 w-12"
-                      />
+                <div className="rounded-sm bg-white shadow-lg hover:shadow">
+                  <Image
+                    src={product.image}
+                    height={138}
+                    width={188}
+                    alt={''}
+                    className="h-44 w-36"
+                  />
+                  <div className="px-1 py-1 text-center text-sm text-black">
+                    <div className="-mt-10 flex w-full justify-center">
+                      <div className="border border-white shadow">
+                        <Image
+                          src={product.image}
+                          height={50}
+                          width={50}
+                          alt={''}
+                          className="h-12 w-12"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="px-4 py-3">
-                    <TextWithEllipsis text={product.title} numberOfLines={1} />
-                    <div className="text-xs text-light-gray">
-                      SweetDream Official
+                    <div className="px-4 py-3">
+                      <TextWithEllipsis
+                        text={product.title}
+                        numberOfLines={1}
+                      />
+                      <div className="text-xs text-light-gray">
+                        SweetDream Official
+                      </div>
                     </div>
                   </div>
                 </div>

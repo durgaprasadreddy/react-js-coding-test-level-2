@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function BottomMenu() {
   return (
     <section className="flex justify-between py-5">
-      <div className="m-auto flex w-content justify-between py-4">
-        <div className="flex flex-1 justify-between text-light-blue">
+      <div className="m-auto w-content justify-between py-4 md:flex">
+        <div className="mb-7 flex flex-1 justify-between text-light-blue md:mb-0">
           <div className="flex-1">
             <h3 className="text-base">CONTACT US</h3>
             <ul className="mt-1 text-xs">

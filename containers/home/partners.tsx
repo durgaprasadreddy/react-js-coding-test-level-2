@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function Partners() {
   return (
     <section className="flex w-full justify-between bg-white py-5">
-      <div className="m-auto flex w-content justify-between py-4">
-        <div className="w-5/12">
+      <div className="m-auto flex flex-wrap justify-between px-4 py-4 lg:w-content lg:px-0">
+        <div className="mb-5 w-full lg:mb-0 lg:w-5/12">
           <h3 className="mb-4">Payment Methods</h3>
           <div className="flex flex-wrap">
             <div className="mr-6 mb-2.5">
@@ -115,7 +115,7 @@ export default function Partners() {
             </div>
           </div>
         </div>
-        <div className="w-1/4">
+        <div className="mb-5 w-full lg:mb-0 lg:w-1/4">
           <h3 className="mb-4">Delivery Services</h3>
           <div className="flex flex-wrap">
             <div className="">
@@ -183,7 +183,7 @@ export default function Partners() {
             </div>
           </div>
         </div>
-        <div className="w-1/4">
+        <div className="mb-5 w-full lg:mb-0 lg:w-1/4">
           <h3 className="mb-4">Verified by</h3>
           <div className="flex flex-wrap">
             <div className="mr-4 mb-2.5">
