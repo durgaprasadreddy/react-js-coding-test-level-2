@@ -1,14 +1,13 @@
 import { ProductInterface } from 'pages'
 import React from 'react'
 import { Chart } from 'react-google-charts'
-import { ChartData } from '.'
 
 export const options = {
   title: 'Cart Products',
 }
 
 interface ChartProps {
-  data: ChartData[]
+  data: ProductInterface[]
 }
 
 export default function PieChart({ data }: ChartProps) {

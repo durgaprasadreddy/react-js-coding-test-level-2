@@ -15,7 +15,7 @@ export default function JustForYou({ products }: JustForYouProps) {
       <div className="mt-0.5 rounded-sm pb-2">
         <div className="mt-0.5 flex flex-wrap pb-3">
           {products.map((product, index) => (
-            <div className="mb-5 w-1/6 cursor-pointer">
+            <div className="mb-5 w-1/2 cursor-pointer pb-2 pr-2 md:w-3/12 lg:w-1/6">
               <div
                 key={product.id}
                 className={`${

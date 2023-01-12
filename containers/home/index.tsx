@@ -17,7 +17,7 @@ export default function HomeContainer({ products }: HomeContainerProps) {
   return (
     <div className="">
       <HomeSlider />
-      <div className="m-auto w-content">
+      <div className="m-auto px-4 lg:w-content lg:px-0">
         <Options />
         <FlashSale products={products} />
         <LazMall products={products} />
